@@ -28,4 +28,11 @@ public class CelController : MonoBehaviour
         Instantiate(celular, new Vector3(0, 0.5f, transform.position.z +2), transform.rotation);
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("tubo")) {
+            Destroy(gameObject);
+        }
+    }
 }
