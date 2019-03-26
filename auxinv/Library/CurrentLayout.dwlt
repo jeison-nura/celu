@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 85
+  controlID: 95
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 128
+  controlID: 13
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 348}
   m_MaxSize: {x: 4004, y: 8048}
   vertical: 1
-  controlID: 13
+  controlID: 108
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -237,8 +237,8 @@ MonoBehaviour:
     y: 0
     width: 808
     height: 449
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 224}
+  m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_StartGridSize: 96
   m_LastFolders: []
   m_LastFoldersGridSize: 96
-  m_LastProjectPath: D:\trabg\auxinv
+  m_LastProjectPath: D:\trabg\celu\auxinv
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
@@ -600,9 +600,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.8988805, y: -0.7065692, z: -0.07388261}
+    m_Target: {x: -0.87, y: -0.7065692, z: -0.073882595}
     speed: 2
-    m_Value: {x: -1.8988805, y: -0.7065692, z: -0.07388261}
+    m_Value: {x: -0.87, y: -0.7065692, z: -0.073882595}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -630,17 +630,17 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.15847367, y: 0.7071561, z: -0.1676731, w: -0.6683578}
+    m_Target: {x: 0.3717991, y: -0.3664011, z: 0.16270123, w: 0.83728373}
     speed: 2
-    m_Value: {x: -0.15847367, y: 0.7071561, z: -0.1676731, w: -0.6683578}
+    m_Value: {x: 0.3717991, y: -0.3664011, z: 0.16270123, w: 0.83728373}
   m_Size:
-    m_Target: 6.00766
+    m_Target: 51.183395
     speed: 2
-    m_Value: 6.00766
+    m_Value: 51.183395
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_ShowGlobalGrid: 1
   m_LastSceneViewRotation: {x: -0.12457745, y: 0.78191876, z: -0.16568941, w: -0.58790344}
   m_LastSceneViewOrtho: 0
