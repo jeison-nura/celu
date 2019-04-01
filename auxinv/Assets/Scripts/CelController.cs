@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,23 +8,24 @@ public class CelController : MonoBehaviour
     public GameObject celular;
     void Start()
     {
-        escala = transform.localScale.y;
+        escala = Random.Range(2f,6f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = new Vector3(1, transform.localScale.y + 0.005f , 1);
-        if (transform.localScale.y >= escala*2) {
-            duplicar();
+        transform.localScale = new Vector3(transform.localScale.x - 0.0009f, transform.localScale.y + 0.005f , 1);
+        if (transform.localScale.y >= escala) {            
+            duplicar(escala);
         }
     }
 
-    private void duplicar()
+    private void duplicar(float escala)
     {
-        celular.transform.localScale = new Vector3(1,1,1);
-        Instantiate(celular, transform.position, transform.rotation);
-        Instantiate(celular, new Vector3(0, 0.5f, transform.position.z +2), transform.rotation);
+        celular.transform.localScale = new Vector3(1,escala/2,1);
+        Instantiate(celular, new Vector3(0, 0.5f, transform.position.z + (escala * 0.25f)), transform.rotation);
+        Instantiate(celular, new Vector3( 0, 0.5f, transform.position.z + (escala*0.75f)), transform.rotation);
+        Debug.Log(escala);
         Destroy(gameObject);
     }
 
