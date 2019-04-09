@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,33 +7,50 @@ public class CelController : MonoBehaviour
 {
     float escala = 0;
     public GameObject celular;
+    GameObject cl;
+    float tamaño;
+    bool crecer = false;
+    float tasacrecimiento = 0;
+    bool divi = true;
+    public float creci = 0.03f;
     void Start()
     {
-        escala = Random.Range(2f,6f);
+        cl = GameObject.FindGameObjectWithTag("reloj");
+        escala = Random.Range(3f,6f);
+        tamaño = transform.localScale.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = new Vector3(transform.localScale.x - 0.0009f, transform.localScale.y + 0.005f , 1);
-        if (transform.localScale.y >= escala) {            
-            duplicar(escala);
+        Clock clo = cl.gameObject.GetComponent<Clock>();
+        crecer = clo.darEstado();
+        if (crecer) {
+            Debug.Log("creci");
+            tasacrecimiento = transform.localScale.y + 1 * creci * transform.localScale.y;            
+            crecer = false;
+        }
+        if (tasacrecimiento >= transform.localScale.y)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + 0.03f, transform.localScale.z);
+        }
+        else {
+            tasacrecimiento = 0;
+        }
+        if (transform.localScale.y >= escala) {
+            divi = true;
+            if (divi) {
+                divicion();
+            }           
         }
     }
 
-    private void duplicar(float escala)
+    private void divicion()
     {
-        celular.transform.localScale = new Vector3(1,escala/2,1);
-        Instantiate(celular, new Vector3(0, 0.5f, transform.position.z + (escala * 0.25f)), transform.rotation);
-        Instantiate(celular, new Vector3( 0, 0.5f, transform.position.z + (escala*0.75f)), transform.rotation);
-        Debug.Log(escala);
-        Destroy(gameObject);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("tubo")) {
-            Destroy(gameObject);
-        }
-    }
+        divi = false;
+        tasacrecimiento = 0;
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y/2, transform.localScale.z);
+        celular.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        Instantiate(celular, new Vector3(transform.position.x, transform.position.y + transform.localScale.y * 0.75f, transform.position.z), transform.rotation);
+    } 
 }

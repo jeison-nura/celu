@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CelController.cs" />
+    <Compile Include="Assets\Scripts\Clock.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/trabg/celu/auxinv/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
