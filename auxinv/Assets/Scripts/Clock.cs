@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Clock : MonoBehaviour{
-    int tiempo;
+    float tiempo;
     int segundos = 0;
     float minutos = 0;
     bool minuto = false;
@@ -19,8 +19,8 @@ public class Clock : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        tiempo ++;
-        if (tiempo % 60 == 0)
+        tiempo += Time.deltaTime;
+        if (tiempo >= 1)
         {
             segundos++;
             if (segundos % 60 == 0)
@@ -28,7 +28,8 @@ public class Clock : MonoBehaviour{
                 minutos++;               
                 segundos = 0;
                 count++;
-            }                                  
+            }
+            tiempo = 0;
         }
         reloj.text = minutos.ToString("00") + ":" + segundos.ToString("00");
         if (count == 1)

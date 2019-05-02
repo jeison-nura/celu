@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8286378974705959596}
   - component: {fileID: 3390532449384176446}
   - component: {fileID: 6841665942593299265}
-  - component: {fileID: 3440453000980362732}
+  - component: {fileID: 3024435841405384991}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7749273668783662584}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.36, z: 0.18}
-  m_LocalScale: {x: 1, y: 1.5012487, z: 1}
+  m_LocalScale: {x: 1, y: 1.4166206, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   celular: {fileID: 7749273668783662584}
   creci: 0.03
---- !u!54 &3440453000980362732
+--- !u!54 &3024435841405384991
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,5 +122,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0

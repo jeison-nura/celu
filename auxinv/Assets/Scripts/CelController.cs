@@ -10,47 +10,58 @@ public class CelController : MonoBehaviour
     GameObject cl;
     float tamaño;
     bool crecer = false;
-    float tasacrecimiento = 0;
+    float crecimiento = 0;
     bool divi = true;
-    public float creci = 0.03f;
+    public float creci = 0.00003f;
+    float seg = 0;
+    float medida = 0;
     void Start()
     {
         cl = GameObject.FindGameObjectWithTag("reloj");
-        escala = Random.Range(3f,6f);
+        escala = Random.Range(2f,4f);
         tamaño = transform.localScale.y;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Clock clo = cl.gameObject.GetComponent<Clock>();
-        crecer = clo.darEstado();
-        if (crecer) {
-            Debug.Log("creci");
-            tasacrecimiento = transform.localScale.y + 1 * creci * transform.localScale.y;            
-            crecer = false;
-        }
-        if (tasacrecimiento >= transform.localScale.y)
-        {
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + 0.03f, transform.localScale.z);
-        }
-        else {
-            tasacrecimiento = 0;
-        }
+        
+       
+            crecimiento = (creci * transform.localScale.y) * Time.deltaTime;
+            //Debug.Log(crecimiento);
+            //Debug.Log(crecimiento + transform.localScale.y);
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + crecimiento, transform.localScale.z);
+          
+          
+        
+        
+        
+
         if (transform.localScale.y >= escala) {
             divi = true;
             if (divi) {
-                divicion();
+                division();
             }           
         }
     }
 
-    private void divicion()
+    private void division()
     {
         divi = false;
-        tasacrecimiento = 0;
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y/2, transform.localScale.z);
-        celular.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        Instantiate(celular, new Vector3(transform.position.x, transform.position.y + transform.localScale.y * 0.75f, transform.position.z), transform.rotation);
-    } 
+        crecimiento = 0;
+
+        medida = transform.localScale.y;
+
+        this.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
+        this.transform.position = new Vector3(transform.position.x, transform.position.y + medida * 0.25f, transform.position.z);
+        celular.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
+        Instantiate(celular, new Vector3(transform.position.x, transform.position.y * 0.75f, transform.position.z), transform.rotation);
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("tapa")) {
+            Destroy(gameObject);
+        }
+    }
 }

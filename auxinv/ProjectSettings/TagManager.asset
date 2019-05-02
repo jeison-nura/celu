@@ -6,6 +6,7 @@ TagManager:
   tags:
   - tubo
   - reloj
+  - tapa
   layers:
   - Default
   - TransparentFX
