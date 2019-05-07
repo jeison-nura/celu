@@ -18,30 +18,32 @@ public class CelController : MonoBehaviour
     void Start()
     {
         cl = GameObject.FindGameObjectWithTag("reloj");
-        escala = Random.Range(2f,4f);
+        escala = Random.Range(2f, 4f);
         tamaño = transform.localScale.y;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-       
-            crecimiento = (creci * transform.localScale.y) * Time.deltaTime;
-            //Debug.Log(crecimiento);
-            //Debug.Log(crecimiento + transform.localScale.y);
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + crecimiento, transform.localScale.z);
-          
-          
-        
-        
-        
 
-        if (transform.localScale.y >= escala) {
+
+        crecimiento = (creci * transform.localScale.y) * Time.deltaTime;
+        //Debug.Log(crecimiento);
+        //Debug.Log(crecimiento + transform.localScale.y);
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + crecimiento, transform.localScale.z);
+
+
+
+
+
+
+        if (transform.localScale.y >= escala)
+        {
             divi = true;
-            if (divi) {
+            if (divi)
+            {
                 division();
-            }           
+            }
         }
     }
 
@@ -49,18 +51,25 @@ public class CelController : MonoBehaviour
     {
         divi = false;
         crecimiento = 0;
-
+        Debug.Log("Tamaño Celula: " + transform.localScale.y);
+        Debug.Log("Posicion: " + transform.position.y);
         medida = transform.localScale.y;
+        float res = medida / 4;
+        celular.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
+        GameObject celHija = Instantiate(celular, new Vector3(transform.position.x, transform.position.y + res + 0.5f, transform.position.z), transform.rotation);
 
         this.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
-        this.transform.position = new Vector3(transform.position.x, transform.position.y + medida * 0.25f, transform.position.z);
-        celular.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
-        Instantiate(celular, new Vector3(transform.position.x, transform.position.y * 0.75f, transform.position.z), transform.rotation);
+        this.transform.position = new Vector3(transform.position.x, transform.position.y - res - 0.5f, transform.position.z);
 
+        Debug.Log("Tamaño Celula madre: " + transform.localScale.y);
+        Debug.Log("Posicion madre: " + transform.position.y);
+        Debug.Log("Tamaño Celula hija: " + celHija.transform.localScale.y);
+        Debug.Log("Posicion hija: " + celHija.transform.position.y);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("tapa")) {
+        if (collision.gameObject.CompareTag("tapa"))
+        {
             Destroy(gameObject);
         }
     }
