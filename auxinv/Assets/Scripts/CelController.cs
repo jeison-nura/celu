@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CelController : MonoBehaviour
 {
-    float escala = 0;
+    float rv = 0;
     public GameObject celular;
     GameObject cl;
     float tamaño;
@@ -15,10 +15,13 @@ public class CelController : MonoBehaviour
     public float creci = 0.00003f;
     float seg = 0;
     float medida = 0;
+    float F=0;
+    public float beta = 1;
+    public float k = 0.00001f;
     void Start()
     {
         cl = GameObject.FindGameObjectWithTag("reloj");
-        escala = Random.Range(2f, 4f);
+        rv = Random.Range(0.0f , 1.0f);
         tamaño = transform.localScale.y;
     }
 
@@ -26,7 +29,7 @@ public class CelController : MonoBehaviour
     void FixedUpdate()
     {
 
-
+        F = F + (1 - F) * (Mathf.Pow(transform.localScale.y, beta)) * k;
         crecimiento = (creci * transform.localScale.y) * Time.deltaTime;
         //Debug.Log(crecimiento);
         //Debug.Log(crecimiento + transform.localScale.y);
@@ -35,9 +38,9 @@ public class CelController : MonoBehaviour
 
 
 
+        Debug.Log(F);
 
-
-        if (transform.localScale.y >= escala)
+        if (F >= rv)
         {
             divi = true;
             if (divi)
@@ -49,6 +52,7 @@ public class CelController : MonoBehaviour
 
     private void division()
     {
+        F = 0;
         divi = false;
         crecimiento = 0;
         Debug.Log("Tamaño Celula: " + transform.localScale.y);
