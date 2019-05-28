@@ -12,12 +12,12 @@ public class CelController : MonoBehaviour
     bool crecer = false;
     float crecimiento = 0;
     bool divi = true;
-    public float creci = 0.00003f;
+    public float creci = 0.0003f;
     float seg = 0;
     float medida = 0;
     float F=0;
     public float beta = 1;
-    public float k = 0.00001f;
+    public float k = 0.0001f;
     void Start()
     {
         cl = GameObject.FindGameObjectWithTag("reloj");
@@ -38,7 +38,7 @@ public class CelController : MonoBehaviour
 
 
 
-        Debug.Log(F);
+        Debug.Log(F + "de la celula" +  transform.name);
 
         if (F >= rv)
         {
@@ -53,6 +53,7 @@ public class CelController : MonoBehaviour
     private void division()
     {
         F = 0;
+        rv = Random.Range(0.0f, 1.0f);
         divi = false;
         crecimiento = 0;
         Debug.Log("Tamaño Celula: " + transform.localScale.y);
