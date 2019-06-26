@@ -307,9 +307,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   celular: {fileID: 7749273668783662584, guid: 9314f19bd4f4c4049b89f8806a412663, type: 3}
-  creci: 0.0003
+  creci: 0.03
   beta: 1
-  k: 0.0001
+  k: 0.0002
 --- !u!136 &120213233
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -941,9 +941,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   celular: {fileID: 7749273668783662584, guid: 9314f19bd4f4c4049b89f8806a412663, type: 3}
-  creci: 0.0003
+  creci: 0.03
   beta: 1
-  k: 0.0001
+  k: 0.0002
 --- !u!136 &376768409
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3203,9 +3203,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   celular: {fileID: 7749273668783662584, guid: 9314f19bd4f4c4049b89f8806a412663, type: 3}
-  creci: 0.0003
+  creci: 0.03
   beta: 1
-  k: 0.0001
+  k: 0.0002
 --- !u!54 &1769008691
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3456,9 +3456,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   celular: {fileID: 7749273668783662584, guid: 9314f19bd4f4c4049b89f8806a412663, type: 3}
-  creci: 0.0003
+  creci: 0.03
   beta: 1
-  k: 0.0001
+  k: 0.0002
 --- !u!136 &1969686030
 CapsuleCollider:
   m_ObjectHideFlags: 0
