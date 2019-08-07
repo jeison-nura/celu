@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7749273668783662584}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.36, z: 0.18}
-  m_LocalScale: {x: 1, y: 3.0696168, z: 1}
+  m_LocalScale: {x: 1, y: 0.7817022, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -68,6 +68,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -106,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83a02f9963867b4c804c68477b08406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  celular: {fileID: 0}
+  celular: {fileID: 7749273668783662584}
   creci: 0.03
   beta: 1
   k: 0.0002

@@ -3,7 +3,9 @@ guid: d83a02f9963867b4c804c68477b08406
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - celular: {fileID: 7749273668783662584, guid: 9314f19bd4f4c4049b89f8806a412663,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

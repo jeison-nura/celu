@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Observer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public delegate void OnRevaluated();
+    public static event OnRevaluated _onRevaluated;
     void Start()
     {
-        
+        CelController._onDivision += ReEstart;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void ReEstart() {
+        _onRevaluated?.Invoke();
     }
 }
