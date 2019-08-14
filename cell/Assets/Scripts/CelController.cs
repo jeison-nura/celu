@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CelController : MonoBehaviour
 {
-    public delegate void OnDivision();
+    public delegate void OnDivision(string data);
     public static event OnDivision _onDivision;
 
     float rv = 0;
@@ -72,13 +72,14 @@ public class CelController : MonoBehaviour
         //Debug.Log("Posicion madre: " + transform.position.y);
         //Debug.Log("Tamaño Celula hija: " + celHija.transform.localScale.y);
         //Debug.Log("Posicion hija: " + celHija.transform.position.y);
-        _onDivision?.Invoke();
+        string data = "Tiempo : " + " tamaño de "+transform.name +"  " + medida + " Tamaño despues dividirce: " + (medida / 2);
+        _onDivision?.Invoke(data);
     }
 
     void ReEstart() {
         F = 0;
         rv = Random.Range(0.0f, 1.0f);
-        Debug.Log("Yo" + transform.name + "Reinicie mis valores");
+        Debug.Log("Yo " + transform.name + " Reinicie mis valores");
     }
     private void OnCollisionEnter(Collision collision)
     {
