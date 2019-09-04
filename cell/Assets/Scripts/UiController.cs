@@ -21,4 +21,8 @@ public class UiController : MonoBehaviour
     public void traerExponente(float valor) {
         exponente = valor;
     }
+
+    public void aplicarCambios() {
+            
+    }
 }
