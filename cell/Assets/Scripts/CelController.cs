@@ -21,6 +21,7 @@ public class CelController : MonoBehaviour
     float F=0;
     public float beta = 1;
     public float k = 0.0001f;
+    int asignacion = 0;
     void Start()
     {
         Observer._onRevaluated += ReEstart;
@@ -64,7 +65,7 @@ public class CelController : MonoBehaviour
         float res = medida / 4;
         celular.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
         GameObject celHija = Instantiate(celular, new Vector3(transform.position.x, transform.position.y + res + 0.5f, transform.position.z), transform.rotation);
-        celHija.transform.name = "hija de : " + this.transform.name; 
+        celHija.transform.name = asignacion + " hija de : " + this.transform.name; 
         this.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
         this.transform.position = new Vector3(transform.position.x, transform.position.y - res - 0.5f, transform.position.z);
 
@@ -74,6 +75,7 @@ public class CelController : MonoBehaviour
         //Debug.Log("Posicion hija: " + celHija.transform.position.y);
         string data = "Tiempo : " + " tamaño de "+transform.name +"  " + medida + " Tamaño despues dividirce: " + (medida / 2);
         _onDivision?.Invoke(data);
+        asignacion++;
     }
 
     void ReEstart() {
