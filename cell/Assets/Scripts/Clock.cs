@@ -43,6 +43,10 @@ public class Clock : MonoBehaviour{
         }
     }
 
+    public string darTiempo() {
+        return minutos.ToString("00") + ":" + segundos.ToString("00");
+    }
+
     public  bool darEstado() {
         return minuto;
     }

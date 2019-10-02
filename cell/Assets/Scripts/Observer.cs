@@ -9,7 +9,7 @@ public class Observer : MonoBehaviour
     public delegate void OnRevaluated();
     public static event OnRevaluated _onRevaluated;
 
-    public List<string> datos = new List<string>();
+    private List<string> datos = new List<string>();
     void Start()
     {
         CelController._onDivision += ReEstart;

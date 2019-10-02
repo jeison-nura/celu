@@ -10,7 +10,7 @@ public class CelController : MonoBehaviour
 
     float rv = 0;
     public GameObject celular;
-    GameObject cl;
+    Clock cl;
     float tamaño;
     //bool crecer = false;
     float crecimiento = 0;
@@ -25,7 +25,8 @@ public class CelController : MonoBehaviour
     void Start()
     {
         Observer._onRevaluated += ReEstart;
-        cl = GameObject.FindGameObjectWithTag("reloj");
+        UiController._changeValues += ChangeParams;
+        cl = GameObject.FindGameObjectWithTag("reloj").GetComponent<Clock>();
         rv = Random.Range(0.0f , 1.0f);
         tamaño = transform.localScale.y;
     }
@@ -73,7 +74,9 @@ public class CelController : MonoBehaviour
         //Debug.Log("Posicion madre: " + transform.position.y);
         //Debug.Log("Tamaño Celula hija: " + celHija.transform.localScale.y);
         //Debug.Log("Posicion hija: " + celHija.transform.position.y);
-        string data = "Tiempo : " + " tamaño de "+transform.name +"  " + medida + " Tamaño despues dividirce: " + (medida / 2);
+        string tiempo = cl.darTiempo();
+        string data = "Tiempo : " + tiempo +" tamaño de "+transform.name +"  " + medida + " Tamaño despues dividirce: " + (medida / 2);
+        Debug.Log(data);
         _onDivision?.Invoke(data);
         asignacion++;
     }
@@ -83,6 +86,13 @@ public class CelController : MonoBehaviour
         rv = Random.Range(0.0f, 1.0f);
         Debug.Log("Yo " + transform.name + " Reinicie mis valores");
     }
+
+    void ChangeParams(float expo, float creci) {
+        Debug.Log(expo + " " + creci );
+        this.beta = expo;
+        this.k = creci;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("tapa"))
