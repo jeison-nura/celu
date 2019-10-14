@@ -31,7 +31,7 @@ para mas informacion dirijase a la pagina https://unity.com/es
 
 _descarga el proyecto _
 
-_Dí cómo será ese paso_
+_despues de descargar el proyecto descomprime y abrelo con unity hub si prefieres o directamente del editor de unity_
 
 ```
 Da un ejemplo
