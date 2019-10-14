@@ -20,7 +20,7 @@ public class CelController : MonoBehaviour
     float medida = 0;
     float F=0;
     public float beta = 1;
-    public float k = 0.0001f;
+    private float k = 0.0003f;
     int asignacion = 0;
     void Start()
     {
