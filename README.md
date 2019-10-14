@@ -33,6 +33,10 @@ _descarga el proyecto _
 
 _despues de descargar el proyecto descomprime y abrelo con unity hub si prefieres o directamente del editor de unity_
 
-```
-Da un ejemplo
-```
+<img src="https://github.com/jeison-nura/celu/blob/master/img/indi.png">
+
+<img src="https://github.com/jeison-nura/celu/blob/master/img/indi15.png">
+
+_Con las herramientas de unity podra reproducir el projecto_
+
+<img src="https://github.com/jeison-nura/celu/blob/master/img/indi22.png">
