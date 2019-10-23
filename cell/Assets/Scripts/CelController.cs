@@ -75,7 +75,7 @@ public class CelController : MonoBehaviour
         //Debug.Log("Tamaño Celula hija: " + celHija.transform.localScale.y);
         //Debug.Log("Posicion hija: " + celHija.transform.position.y);
         string tiempo = cl.darTiempo();
-        string data = "Tiempo : " + tiempo +" tamaño de "+transform.name +"  " + medida + " Tamaño despues dividirce: " + (medida / 2);
+        string data = "Tiempo | " + tiempo +"$ tamaño de "+transform.name +"  " + medida + "$ Tamaño despues dividirce: " + (medida / 2);
         Debug.Log(data);
         _onDivision?.Invoke(data);
         asignacion++;
@@ -84,11 +84,11 @@ public class CelController : MonoBehaviour
     void ReEstart() {
         F = 0;
         rv = Random.Range(0.0f, 1.0f);
-        Debug.Log("Yo " + transform.name + " Reinicie mis valores");
+        //Debug.Log("Yo " + transform.name + " Reinicie mis valores");
     }
 
     void ChangeParams(float expo, float creci) {
-        Debug.Log(expo + " " + creci );
+        //Debug.Log(expo + " " + creci );
         this.beta = expo;
         this.k = creci;
     }

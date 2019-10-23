@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System;
 
 public class Observer : MonoBehaviour
 {
@@ -22,10 +23,21 @@ public class Observer : MonoBehaviour
     }
 
     void ReEstart(string data) {
-        Debug.Log(data);
-        Debug.Log("Alguien se dividio");
+        //Debug.Log(data);
+        //Debug.Log("Alguien se dividio");
         guardarDocumento(data);
         _onRevaluated?.Invoke();
+        darDatos();
+    }
+
+    private void darDatos()
+    {
+        foreach (string dat in datos){
+            string []elementos = dat.Split('$');
+            for (int i = 0; i< elementos.Length; i++) {
+                Debug.Log(elementos[i]);
+            }            
+        }
     }
 
     void guardarDocumento(string data) {
