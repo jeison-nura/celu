@@ -37,11 +37,11 @@ public class UiController : MonoBehaviour
 
     private void evaluarCreci()
     {
-        if (crecimiento > 2 && crecimiento < 5)
+        if (crecimiento >  0 && crecimiento < 0.8)
         {
             cre.color = Color.red;
         }
-        else if (crecimiento > 5)
+        else if (crecimiento > 1.3)
         {
             cre.color = Color.green;
         }
@@ -53,11 +53,11 @@ public class UiController : MonoBehaviour
 
     private void evaluarExpo()
     {
-        if (exponente > 2 && exponente < 5)
+        if (exponente > 0 && exponente < 0.8)
         {
             exp.color = Color.red;
         }
-        else if (exponente > 5)
+        else if (exponente > 1.3)
         {
             exp.color = Color.green;
         }

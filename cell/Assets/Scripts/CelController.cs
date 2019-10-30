@@ -1,7 +1,9 @@
 ﻿//using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CelController : MonoBehaviour
 {
@@ -12,38 +14,43 @@ public class CelController : MonoBehaviour
     public GameObject celular;
     Clock cl;
     float tamaño;
-    //bool crecer = false;
+    float tim = 0;
     float crecimiento = 0;
     bool divi = true;
-    public float creci = 0.0003f;
-    //float seg = 0;
+    public float creci = 0.03f;
+    
     float medida = 0;
     float F=0;
     public float beta = 1;
-    private float k = 0.0003f;
+    private float k = 0.03f;
     int asignacion = 0;
     void Start()
     {
         Observer._onRevaluated += ReEstart;
         UiController._changeValues += ChangeParams;
         cl = GameObject.FindGameObjectWithTag("reloj").GetComponent<Clock>();
-        rv = Random.Range(0.0f , 1.0f);
+        rv = UnityEngine.Random.Range(0.0f , 1.0f);
         tamaño = transform.localScale.y;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        F = F + (1 - F) * (Mathf.Pow(transform.localScale.y, beta)) * k;
         crecimiento = (creci * transform.localScale.y) * Time.deltaTime;
-        //Debug.Log(crecimiento);
-        //Debug.Log(crecimiento + transform.localScale.y);
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + crecimiento, transform.localScale.z);
+        tim += Time.deltaTime;
+        
+        if (tim >= 1) {
+            control();
+            tim = 0;
+        }
+        
+    }
 
-
-
-
+    private void control()
+    {
+        F = F + (1 - F) * (Mathf.Pow(transform.localScale.y, beta)) * k;
+        
         //Debug.Log(F + "de la celula" +  transform.name);
 
         if (F >= rv)
@@ -54,7 +61,7 @@ public class CelController : MonoBehaviour
                 division();
             }
         }
-    }    
+    }
 
     void division()
     {           
