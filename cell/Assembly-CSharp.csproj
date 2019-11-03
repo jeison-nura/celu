@@ -67,9 +67,11 @@
     <Compile Include="Assets\Scripts\CelController.cs" />
     <Compile Include="Assets\Scripts\ChangeColor.cs" />
     <Compile Include="Assets\Scripts\Clock.cs" />
+    <Compile Include="Assets\Scripts\ContextStrategy.cs" />
     <Compile Include="Assets\Scripts\DragMe.cs" />
     <Compile Include="Assets\Scripts\DragPanel.cs" />
     <Compile Include="Assets\Scripts\DropMe.cs" />
+    <Compile Include="Assets\Scripts\Madres.cs" />
     <Compile Include="Assets\Scripts\Observer.cs" />
     <Compile Include="Assets\Scripts\PanelManager.cs" />
     <Compile Include="Assets\Scripts\ResizePanel.cs" />

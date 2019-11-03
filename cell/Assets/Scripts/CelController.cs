@@ -17,15 +17,19 @@ public class CelController : MonoBehaviour
     float tim = 0;
     float crecimiento = 0;
     bool divi = true;
-    public float creci = 0.03f;
+    public float creci = 0.3f;
     
     float medida = 0;
     float F=0;
-    public float beta = 1;
+    public float beta = 0.005f;
     private float k = 0.03f;
+    public float inicial = 0;
     int asignacion = 0;
+    public String tipo = "Madre";
     void Start()
     {
+        Time.timeScale = 1;
+        inicial = transform.localScale.y;
         Observer._onRevaluated += ReEstart;
         UiController._changeValues += ChangeParams;
         cl = GameObject.FindGameObjectWithTag("reloj").GetComponent<Clock>();
@@ -73,6 +77,7 @@ public class CelController : MonoBehaviour
         float res = medida / 4;
         celular.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
         GameObject celHija = Instantiate(celular, new Vector3(transform.position.x, transform.position.y + res + 0.5f, transform.position.z), transform.rotation);
+        celHija.GetComponent<CelController>().setTipo("Hija");
         celHija.transform.name = asignacion + " hija de : " + this.transform.name; 
         this.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
         this.transform.position = new Vector3(transform.position.x, transform.position.y - res - 0.5f, transform.position.z);
@@ -82,7 +87,7 @@ public class CelController : MonoBehaviour
         //Debug.Log("Tamaño Celula hija: " + celHija.transform.localScale.y);
         //Debug.Log("Posicion hija: " + celHija.transform.position.y);
         string tiempo = cl.darTiempo();
-        string data = "Tiempo | " + tiempo +"$ tamaño de "+transform.name +"  " + medida + "$ Tamaño despues dividirce: " + (medida / 2);
+        string data = "Tiempo | " + tiempo +"$ tamaño de "+transform.name +" : " + medida + "$ Tamaño inicial: " + inicial + "$Tipo:" + tipo;
         Debug.Log(data);
         _onDivision?.Invoke(data);
         asignacion++;
@@ -109,7 +114,8 @@ public class CelController : MonoBehaviour
         }
     }
 
-
-    
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
         
 }

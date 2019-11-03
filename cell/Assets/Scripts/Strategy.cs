@@ -1,18 +1,9 @@
-﻿using System.Collections;
+﻿
+
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Strategy : MonoBehaviour
+public interface IStrategy 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    List<String> DarInfo(List<String> lista);
 }

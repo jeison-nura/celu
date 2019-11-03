@@ -11,6 +11,7 @@ public class Observer : MonoBehaviour
     public static event OnRevaluated _onRevaluated;
 
     private List<string> datos = new List<string>();
+    private List<string> madres = new List<string>();
     void Start()
     {
         CelController._onDivision += ReEstart;
@@ -26,24 +27,27 @@ public class Observer : MonoBehaviour
         //Debug.Log(data);
         //Debug.Log("Alguien se dividio");
         guardarDocumento(data);
-        _onRevaluated?.Invoke();
-        darDatos();
+        _onRevaluated?.Invoke();        
     }
 
-    private void darDatos()
-    {
-        foreach (string dat in datos){
-            string []elementos = dat.Split('$');
-            for (int i = 0; i< elementos.Length; i++) {
-                Debug.Log(elementos[i]);
-            }            
-        }
-    }
+   
 
     void guardarDocumento(string data) {
         datos.Add(data);
         using (StreamWriter outputFile = new StreamWriter(Application.persistentDataPath + "/Datos1.txt")) {
             foreach (string linea in datos)
+            {
+                outputFile.WriteLine(linea);
+            }
+        }
+    }
+
+    void GenerarInforme() {
+        ContextStrategy cs = new ContextStrategy(new Madres());
+        madres = cs.SepararMadres(datos);
+        using (StreamWriter outputFile = new StreamWriter(Application.persistentDataPath + "/Madres.txt"))
+        {
+            foreach (string linea in madres)
             {
                 outputFile.WriteLine(linea);
             }
