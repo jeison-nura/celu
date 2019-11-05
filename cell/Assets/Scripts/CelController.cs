@@ -17,12 +17,10 @@ public class CelController : MonoBehaviour
     float tim = 0;
     float crecimiento = 0;
     bool divi = true;
-    public float creci = 0.3f;
-    
-    float medida = 0;
+    public float creci = 0.3f;   
     float F=0;
-    public float beta = 0.005f;
-    private float k = 0.03f;
+    public float beta = 0.1f;
+    private float k = 0.005f;
     public float inicial = 0;
     int asignacion = 0;
     public String tipo = "Madre";
@@ -73,14 +71,21 @@ public class CelController : MonoBehaviour
         crecimiento = 0;
         //Debug.Log("Tamaño Celula: " + transform.localScale.y);
         //Debug.Log("Posicion: " + transform.position.y);
-        medida = transform.localScale.y;
-        float res = medida / 4;
+        float medida = transform.localScale.y;        
+        float pos = transform.position.y;
+        float res = medida/2;
+        float resultado = pos + res;
+        float resultado1 = pos - res;
+        //Debug.Log("posicion 1" + resultado);
+        //Debug.Log("posicion 2" + resultado1);
         celular.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
-        GameObject celHija = Instantiate(celular, new Vector3(transform.position.x, transform.position.y + res + 0.5f, transform.position.z), transform.rotation);
-        celHija.GetComponent<CelController>().setTipo("Hija");
-        celHija.transform.name = asignacion + " hija de : " + this.transform.name; 
+        this.transform.position = new Vector3(transform.position.x, resultado1 , transform.position.z);
         this.transform.localScale = new Vector3(transform.localScale.x, medida / 2, transform.localScale.z);
-        this.transform.position = new Vector3(transform.position.x, transform.position.y - res - 0.5f, transform.position.z);
+        GameObject celHija = Instantiate(celular, new Vector3(transform.position.x, resultado , transform.position.z), transform.rotation);
+        celHija.GetComponent<CelController>().setTipo("Hija");
+        celHija.transform.name = asignacion + " hija de : " + this.transform.name;
+       
+        
 
         //Debug.Log("Tamaño Celula madre: " + transform.localScale.y);
         //Debug.Log("Posicion madre: " + transform.position.y);
