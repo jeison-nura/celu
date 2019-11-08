@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\CelController.cs" />
     <Compile Include="Assets\Scripts\ChangeColor.cs" />
     <Compile Include="Assets\Scripts\Clock.cs" />
+    <Compile Include="Assets\Scripts\ContextState.cs" />
     <Compile Include="Assets\Scripts\ContextStrategy.cs" />
     <Compile Include="Assets\Scripts\DragMe.cs" />
     <Compile Include="Assets\Scripts\DragPanel.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\ShowSliderValue.cs" />
     <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\Scripts\Strategy.cs" />
+    <Compile Include="Assets\Scripts\TamañoTipico1.cs" />
     <Compile Include="Assets\Scripts\TiltWindow.cs" />
     <Compile Include="Assets\Scripts\UiController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

@@ -2,17 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class State : MonoBehaviour
+public interface IState
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    List<int> tamañoTipico();
 }

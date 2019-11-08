@@ -14,7 +14,7 @@ public class Observer : MonoBehaviour
     private List<string> madres = new List<string>();
     void Start()
     {
-        CelController._onDivision += ReEstart;
+        CelController._onDivision += ReEstart; //subcripcion a un evento 
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class Observer : MonoBehaviour
         //Debug.Log(data);
         //Debug.Log("Alguien se dividio");
         guardarDocumento(data);
-        _onRevaluated?.Invoke();        
+        _onRevaluated?.Invoke();     // le dice a todos los subcriptores que a ocurrido algo el notify   
     }
 
    

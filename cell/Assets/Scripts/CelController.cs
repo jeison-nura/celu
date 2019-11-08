@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 
 public class CelController : MonoBehaviour
 {
-    public delegate void OnDivision(string data);
-    public static event OnDivision _onDivision;
+    public delegate void OnDivision(string data); //declaracion del delgate
+    public static event OnDivision _onDivision; // declaracion del evento
 
     float rv = 0;
     public GameObject celular;
@@ -28,8 +28,8 @@ public class CelController : MonoBehaviour
     {
         Time.timeScale = 1;
         inicial = transform.localScale.y;
-        Observer._onRevaluated += ReEstart;
-        UiController._changeValues += ChangeParams;
+        Observer._onRevaluated += ReEstart; //subcripcion al evento
+        UiController._changeValues += ChangeParams; //subcripcion al evento
         cl = GameObject.FindGameObjectWithTag("reloj").GetComponent<Clock>();
         rv = UnityEngine.Random.Range(0.0f , 1.0f);
         tamaño = transform.localScale.y;
@@ -94,7 +94,7 @@ public class CelController : MonoBehaviour
         string tiempo = cl.darTiempo();
         string data = "Tiempo | " + tiempo +"$ tamaño de "+transform.name +" : " + medida + "$ Tamaño inicial: " + inicial + "$Tipo:" + tipo;
         Debug.Log(data);
-        _onDivision?.Invoke(data);
+        _onDivision?.Invoke(data); // notifica a los subcriptores
         asignacion++;
     }
 
@@ -114,7 +114,7 @@ public class CelController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("tapa"))
         {
-            Observer._onRevaluated-= ReEstart;
+            Observer._onRevaluated-= ReEstart; //remueve el objeto de donde estaba subcrito
             Destroy(gameObject);
         }
     }
