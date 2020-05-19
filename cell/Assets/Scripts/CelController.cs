@@ -26,7 +26,7 @@ public class CelController : MonoBehaviour
     public String tipo = "Madre";
     void Start()
     {
-        Time.timeScale = 1;
+        
         inicial = transform.localScale.y;
         Observer._onRevaluated += ReEstart; //subcripcion al evento
         UiController._changeValues += ChangeParams; //subcripcion al evento

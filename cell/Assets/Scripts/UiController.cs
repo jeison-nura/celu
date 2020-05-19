@@ -9,10 +9,14 @@ public class UiController : MonoBehaviour
     private float exponente = 1;
     private float crecimiento = 1;
     private float k = 0;
+
+    private float ritmoTiempo = 1;
+    private float aux = 1;
     List<int> valores;
 
     public Text expo;
     public Text creci;
+    public Text contadorTiempo;
 
     public GameObject colorExpo;
     public GameObject colorCreci;
@@ -27,6 +31,7 @@ public class UiController : MonoBehaviour
 
     void Start()
     {
+        contadorTiempo.text = "1";
         exp = colorExpo.GetComponent<Image>();
         cre = colorCreci.GetComponent<Image>();
     }
@@ -38,6 +43,7 @@ public class UiController : MonoBehaviour
         creci.text = "Crecimiento: " + crecimiento;
         evaluarExpo();
         evaluarCreci();
+        Time.timeScale = ritmoTiempo;
     }
 
     private void evaluarCreci()
@@ -102,4 +108,31 @@ public class UiController : MonoBehaviour
     public void aplicarCambios() {
         _changeValues?.Invoke(exponente, crecimiento);
     }
+
+    public void agregarTiempo(){
+        if( ritmoTiempo == 5 ){
+            ritmoTiempo = 5;
+        }else{
+            ritmoTiempo += 1;
+        }
+        contadorTiempo.text = ritmoTiempo+"";
+    }
+    public void pausarTiempo(){
+        aux = ritmoTiempo;
+        ritmoTiempo = 0;
+        contadorTiempo.text = ritmoTiempo+"";
+    }
+    public void reanudarTiempo(){
+        ritmoTiempo = aux;
+        contadorTiempo.text = ritmoTiempo+"";
+    }
+    public void disminuirTiempo(){
+        if( ritmoTiempo == 0 ){
+            ritmoTiempo = 0;
+        }else{
+            ritmoTiempo -= 1;
+        }
+        contadorTiempo.text = ritmoTiempo+"";
+    }
+    
 }
