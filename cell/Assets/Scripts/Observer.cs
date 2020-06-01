@@ -42,10 +42,10 @@ public class Observer : MonoBehaviour
         }
     }
 
-    void GenerarInforme() {
+    public void GenerarInforme() {
         ContextStrategy cs = new ContextStrategy(new Madres());
         madres = cs.SepararMadres(datos);
-        using (StreamWriter outputFile = new StreamWriter(Application.persistentDataPath + "/Madres.txt"))
+        using (StreamWriter outputFile = new StreamWriter(@"C:\Users\Jeison\Desktop\" + "Madres.txt"))
         {
             foreach (string linea in madres)
             {

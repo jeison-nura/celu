@@ -31,6 +31,8 @@ public class UiController : MonoBehaviour
 
     void Start()
     {
+        //evaluarCreci();
+        //evaluarExpo();
         contadorTiempo.text = "1";
         exp = colorExpo.GetComponent<Image>();
         cre = colorCreci.GetComponent<Image>();
@@ -39,8 +41,8 @@ public class UiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        expo.text = "Exponente : " + exponente;
-        creci.text = "Crecimiento: " + crecimiento;
+        expo.text = "Exponente : " + exponente.ToString("F2");
+        creci.text = "Crecimiento: " + crecimiento.ToString("F3");
         evaluarExpo();
         evaluarCreci();
         Time.timeScale = ritmoTiempo;
@@ -80,7 +82,7 @@ public class UiController : MonoBehaviour
 
     public void TraerExponente(float valor) {
         exponente = valor;
-        buscarK();
+        //buscarK();
 
     }
 
@@ -92,7 +94,7 @@ public class UiController : MonoBehaviour
     public void TraerCrecimiento(float valor)
     {
         crecimiento = valor;
-        traerLista(crecimiento);
+        //traerLista(crecimiento);
     }
 
     private void traerLista(float crecimiento)
@@ -133,6 +135,6 @@ public class UiController : MonoBehaviour
             ritmoTiempo -= 1;
         }
         contadorTiempo.text = ritmoTiempo+"";
-    }
+    } 
     
 }

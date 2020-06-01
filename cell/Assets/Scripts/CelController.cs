@@ -93,7 +93,7 @@ public class CelController : MonoBehaviour
         //Debug.Log("Posicion hija: " + celHija.transform.position.y);
         string tiempo = cl.darTiempo();
         string data = "Tiempo | " + tiempo +"$ tamaño de "+transform.name +" : " + medida + "$ Tamaño inicial: " + inicial + "$Tipo:" + tipo;
-        Debug.Log(data);
+        //Debug.Log(data);
         _onDivision?.Invoke(data); // notifica a los subcriptores
         asignacion++;
     }
@@ -105,7 +105,7 @@ public class CelController : MonoBehaviour
     }
 
     void ChangeParams(float expo, float creci) {
-        //Debug.Log(expo + " " + creci );
+        Debug.Log(expo + " " + creci );
         this.beta = expo;
         this.k = creci;
     }
